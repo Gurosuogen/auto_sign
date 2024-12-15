@@ -1,5 +1,5 @@
 """
-name: gmguard签到
+name: gmgard签到
 cron: 7 0 * * *
 """
 import asyncio
