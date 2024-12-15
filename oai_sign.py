@@ -41,8 +41,9 @@ def reqSign():
         "sec-fetch-site": "same-origin",
         # "origin": "https://oai.itsfurry.com",
         "Referer": "https://oai.itsfurry.com/",
-        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Referrer-Policy": "strict-origin-when-cross-origin"
         # "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+    }
     data = {
         "id": 3262
     }
@@ -58,7 +59,6 @@ def reqSign():
     except requests.exceptions.RequestException as e:
         print("请求失败:", e)
         QLAPI.notify("oai签到失败", str(e))
-
 
 if __name__ == '__main__':
     reqSign()
