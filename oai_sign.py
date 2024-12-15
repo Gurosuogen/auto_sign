@@ -6,10 +6,13 @@ cron: 2 8 * * *
 """
 import requests
 import os
-import custom_notify as notify
 
 url = "https://oai.itsfurry.com/api/user/signing"
 
+def sendNotify(title,desc):
+    print(title,desc)
+    ## 青龙脚本通知
+    QLAPI.notify(title, desc)
 
 def reqSign():
     cookie = os.environ.get('OAI_COOKIE')
