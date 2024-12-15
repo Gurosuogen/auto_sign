@@ -1,3 +1,7 @@
+"""
+name: OAI_Z签到
+cron: 22 0 * * *
+"""
 import asyncio
 import httpx
 import os

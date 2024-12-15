@@ -1,7 +1,5 @@
 """
-任务名称
 name: gmguard签到
-定时规则
 cron: 7 0 * * *
 """
 import asyncio
