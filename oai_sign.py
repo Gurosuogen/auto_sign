@@ -49,14 +49,14 @@ def reqSign():
         response = requests.post(url, json=data, headers=headers)
         print("状态码:", response.status_code)
         if response.status_code == 200:
-            notify.sendNotify("签到成功", "")
+            sendNotify("签到成功", "")
         else:
-            notify.sendNotify("签到失败", response.text)
+            sendNotify("签到失败", response.text)
         print("响应内容:", response.text)
 
     except requests.exceptions.RequestException as e:
         print("请求失败:", e)
-        notify.sendNotify("oai签到失败", str(e))
+        sendNotify("oai签到失败", str(e))
 
 
 if __name__ == '__main__':
