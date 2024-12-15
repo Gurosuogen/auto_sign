@@ -12,10 +12,10 @@ url = "https://oai.itsfurry.com/api/user/signing"
 
 
 def reqSign():
-    cookie = os.environ.get('ITS_COOKIE')
+    cookie = os.environ.get('OAI_COOKIE')
     if cookie is None:
         print("Cookie not set  use getenv method")
-        cookie = os.getenv('ITS_COOKIE')
+        cookie = os.getenv('OAI_COOKIE')
 
     if cookie is None:
         print("cookie not set ")
