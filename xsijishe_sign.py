@@ -37,9 +37,9 @@ async def fetch():
         },
         cookies=cookie,
     )
-    
-    response.encoding = "utf-8"
-    print(response.text)
+
+    data = json.loads(response.text)
+    print(data)
     await client.aclose()
 
 asyncio.run(fetch())
