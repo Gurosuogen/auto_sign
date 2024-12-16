@@ -45,7 +45,7 @@ async def fetch():
             """
     )
 
-    response.encoding = "utf-8"
-    QLAPI.notify('绅士之庭', f'签到成功: {response.text}')
+    data = json.loads(response.text)
+    QLAPI.notify('绅士之庭', f'签到成功: {data}')
     await client.aclose()
 asyncio.run(fetch())
