@@ -1,6 +1,7 @@
 import asyncio
 import httpx
-
+import os
+import json
 
 async def fetch():
     cookie = os.environ.get('SJS_COOKIE')
