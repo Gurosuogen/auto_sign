@@ -45,18 +45,13 @@ async def fetch():
             """
     )
 
-    # response.encoding = "utf-8"
-    # print(response.text)
-    # QLAPI.notify('绅士之庭', '签到成功')
-    # data = json.loads(response.text)
-    # QLAPI.notify('绅士之庭', f'签到成功: {data}')
     # 解析 JSON 数据
-    data = json.loads(response_text)
+    data = json.loads(response.text)
     # 构造通知消息
     if data['Success']:
         message = f"签到成功！连续签到天数: {data['ConsecutiveDays']}，奖励经验: {data['ExpBonus']}，当前积分: {data['Points']}"
     else:
-        message = f"签到失败：{data['ErrorMessage']}"
+        message = f"签到失败：{data['ErrorMessage']}, 连续签到天数: {data['ConsecutiveDays']}，奖励经验: {data['ExpBonus']}，当前积分: {data['Points']}"
     # 发送通知
     QLAPI.notify('绅士之庭', message)
 
