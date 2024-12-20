@@ -48,7 +48,7 @@ async def fetch():
     # 解析 JSON 数据
     data = json.loads(response.text)
     # 构造通知消息
-    if data['Success']:
+    if data['success']:
         message = f"签到成功！{data['message']}"
     else:
         message = f"签到失败：{data['message']}"
