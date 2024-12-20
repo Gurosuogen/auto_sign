@@ -1,3 +1,7 @@
+"""
+name: Follow签到
+cron: 8 8 * * *
+"""
 import requests
 import json
 import os
