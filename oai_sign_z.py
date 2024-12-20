@@ -5,13 +5,14 @@ cron: 22 0 * * *
 import asyncio
 import httpx
 import os
+import json
 
 body = """
     {"id":3262}
 """
 
 async def fetch():
-    cookie = os.environ.get('OAI_COOKIE')
+    cookie = json.loads(os.environ.get('OAI_COOKIE'))
     if cookie is None:
         print("Cookie not set  use getenv method")
         cookie = os.getenv('OAI_COOKIE')
@@ -44,8 +45,15 @@ async def fetch():
         cookies=cookie,
         content=body,
     )
-    response.encoding = "utf-8"
-    QLAPI.notify('OAI', f'签到成功: {response.text}')
+    # 解析 JSON 数据
+    data = json.loads(response_text)
+    # 构造通知消息
+    if data['Success']:
+        message = f"签到成功！{data['message']}"
+    else:
+        message = f"签到失败：{data['message']}"
+    # 发送通知
+    QLAPI.notify('Linux.do API', message)
     await client.aclose()
 
 asyncio.run(fetch())
